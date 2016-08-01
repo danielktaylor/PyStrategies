@@ -4,6 +4,8 @@ PyStrategies is a collection of Python tools for implementing, testing, and opti
 
 This project relies on another one of my libraries: [PyLimitBook](https://github.com/danielktaylor/PyLimitBook)
 
+The bottom of this README includes important setup instructions.
+
 ## Toolset
 
 ### Writing Strategies
@@ -57,29 +59,41 @@ Wrapper scripts are included to generate features and do deep learning using [Th
         # Test the model
         ./machine_learning/test_nn.py quotes/XOM_BATS_2010-06-24.csv
 
-## Setup
+## Setup Instructions
 
-### Installing CuDNN
+### Install jpy for bridging Python and Java code 
+
+1. ``git clone https://github.com/bcdev/jpy.git``
+2. ``cd jpy``
+3. ``export JDK_HOME=`/usr/libexec/java_home` ``
+4. ``export JAVA_HOME=$JDK_HOME``
+5. ``python setup.py --maven build``
+6. Copy lib/jpy-0.8.jar to the Java project's [lib directory](backtest/TradingFramework4j/lib)
+7. Copy properties file from build/lib.*/jpyconfig.properties into the Java project's [strategy directory](strategy/jpyconfig.properties)
+
+### Install CuDNN for Speeding up Deep Learning
+
+If your GPU supports CUDA, the machine learning with be much, much faster if you install CuDNN from NVIDIA.
 
 1. Download CuDNN: https://developer.nvidia.com/rdp/cudnn-download
-  * Following configuration works:
+  * The following configuration works on Mac OS X:
     * nvcc version: release 7.5, V7.5.26
     * cuda driver: 7.5.27
     * clang version: clang-703.0.29 (XCODE 7.3.0)
     * osx version: 10.11.4
 2. Install libraries:
-  *  cd <installpath>
-  *  Linux: export LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH
-  *  Mac: export DYLD_LIBRARY_PATH=`pwd`:$DYLD_LIBRARY_PATH
+  *  cd to where you want the libraries to live
+  *  Linux: ``export LD_LIBRARY_PATH=`pwd`:$LD_LIBRARY_PATH``
+  *  Mac: ``export DYLD_LIBRARY_PATH=`pwd`:$DYLD_LIBRARY_PATH``
        * Copied *.h files to CUDA_ROOT/include and *.so* files to CUDA_ROOT/lib64
-           * By default, CUDA_ROOT is /usr/local/cuda on Linus and /Developer/NVIDIA/CUDA-* on mac
-       * Added the following to the end of my ~/.profile:
+           * By default, CUDA_ROOT is /usr/local/cuda on Linux and /Developer/NVIDIA/CUDA-* on mac
+       * Add the following to the end of ~/.profile:
 
              export PATH="/Developer/NVIDIA/CUDA-7.5/bin:$PATH"
              export DYLD_LIBRARY_PATH="/Developer/NVIDIA/CUDA-7.5/lib:$DYLD_LIBRARY_PATH"
 
-  *  Add <installpath> to your build and link process by adding -I<installpath> to your compile line and -L<installpath> -lcudnn to your link line.
-3. Create a ~/.theanorc file: (skip markdown backticks!)
+  *  Add the install path to your build and link process by adding -I`installpath` to your compile line and -L`installpath` -lcudnn to your link line.
+3. Create a ~/.theanorc file: (adjust [cnmem](http://deeplearning.net/software/theano/library/config.html#config.config.lib.cnmem) as necessary)
 
         [global]
         device=gpu
@@ -92,14 +106,3 @@ Wrapper scripts are included to generate features and do deep learning using [Th
 
         [nvcc]
         fastmath=True
-
-### Install jpy
-
-1. git clone https://github.com/bcdev/jpy.git
-2. cd jpy
-3. export JDK_HOME=`/usr/libexec/java_home`
-4. export JAVA_HOME=$JDK_HOME
-5. python setup.py --maven build
-6. Copy lib/jpy-0.8.jar to the Java project
-7. Copy properties file into the same directory as the Java project:
-  * build/lib.*/jpyconfig.properties
