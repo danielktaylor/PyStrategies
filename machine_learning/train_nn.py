@@ -9,25 +9,6 @@ import preprocess
 # File format version number
 FILE_FORMAT_VERSION = 1.4
 
-
-
-#TODO notes from NN paper
-# dropout + batch normalization between each hidden layer
-# RMSProp algorithm used for Training
-# adaptive learning rate (decrease by constant factor when training error incrases over a training epoch)
-# early stopping via a validation set
-# l^2 penalty (?) when training to reduce overfitting
-# ReLu are often the best but they used tanh
-# data split 95% for training, 5% for validation
-# 250 neurons per layer
-# 75 epochs
-# reshuffle @ each epoch
-# early stopping: save model @ each epoch and pick model with lowest validation error
-# error reported is cross-entropy error
-# data is shuffled over the whole time period, not just intraday
-# 
-
-
 # Training configuration
 BATCH_SIZE = 500
 NUM_EPOCHS = 30
