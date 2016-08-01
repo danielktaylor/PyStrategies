@@ -1,0 +1,8 @@
+name,min,max
+max_pnl_loss,1000,200000       # 1-200 cents
+max_pnl_gain,1000,200000       # 1-200 cents
+min_time,200,60000             # 200 mS - 60 seconds
+min_cents,1000,100000          # 1-100 cents
+cooldown,200,30000             # 200 mS - 30 seconds
+max_open_order_time,100,30000  # 100 mS - 30 seconds
+closeout_freshness,100,30000   # 100 mS - 30 seconds

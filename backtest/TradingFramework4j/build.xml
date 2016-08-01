@@ -1,0 +1,35 @@
+<project name="Backtester">
+	<property environment="env"/>
+	<property file="build.properties"/>
+
+	<path id="project.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<path id="test-analysis-classpath">
+		<path refid="project.classpath"/>
+	</path>
+
+	<target name="clean" description="Delete all generated output">
+		<delete dir="${java.out.dir}"/>
+		<delete dir="${analysis.out.dir}"/>
+	</target>
+
+	<!-- compile java source -->
+	<target name="compile" description="Compile source">
+		<mkdir dir="${java.out.dir}"/>
+		<javac destdir="${java.out.dir}" source="6" target="6" debug="on" includeantruntime="false">
+			<classpath refid="project.classpath"/>
+			<src path="${java.src.dir}"/>
+			<src path="${test.src.dir}"/>
+		</javac>
+		<copy todir="${java.out.dir}">
+			<fileset dir="${config.dir}">
+				<include name="*.xml"/>
+			</fileset>
+		</copy>
+	</target>
+
+</project>
