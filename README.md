@@ -10,7 +10,7 @@ The bottom of this README includes important setup instructions.
 
 ### Writing Strategies
 
-Strategies are implemented by extending the [BaseStrategy](strategy/pyStrategy.py) base class and adding logic for event callbacks. Refer to the [Sample Strategy](strategy/pyStrategy.py) for an (unprofitable) example.
+Strategies are implemented by extending the [BaseStrategy](backtest/PyBridge/basestrategy.py) base class and adding logic for event callbacks. Refer to the [Sample Strategy](strategy/pyStrategy.py) for an (unprofitable) example.
 
 ### Backtesting a Strategy
 
