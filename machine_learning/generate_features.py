@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import sys
 import os
 import gc
@@ -10,8 +8,7 @@ import utils
 import indicators as i
 
 # Import PyLimitBook
-sys.path.append(utils.get_pylimitbook_dir())
-from researchBook import ResearchBook
+from pylimitbook import researchBook
 
 # File format version number
 FILE_FORMAT_VERSION = 1.4
@@ -118,7 +115,7 @@ if __name__ == '__main__':
         sys.exit(0)
     try:
         reader = open(sys.argv[1], 'r')
-        quotebook = ResearchBook()
+        quotebook = researchBook.ResearchBook()
         for line in reader:
             if line[0] == 'B':
                 last_tick = quotebook.bid(line.rstrip())

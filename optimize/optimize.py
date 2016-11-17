@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import os, sys, re
 import optunity
 from fabric.api import env, local, lcd

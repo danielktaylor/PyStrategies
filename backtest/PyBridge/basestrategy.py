@@ -1,8 +1,9 @@
 import sys
 sys.path.append('../PyLimitBook')
 
-from researchBook import ResearchBook
-from tick import convert_price
+# Import PyLimitBook
+from pylimitbook import researchBook
+from pylimitbook import tick
 
 class Order(object):
     def __init__(self, client_order_id, price, qty, order_type, placed_time):
@@ -40,7 +41,7 @@ class BaseStrategy(object):
 
         # State Tracking
         self._actions = []
-        self._book = ResearchBook()
+        self._book = researchBook.ResearchBook()
         self._client_order_id = 0
         self._last_ask = None
         self._last_bid = None
@@ -132,7 +133,7 @@ class BaseStrategy(object):
         # Internal state updates
         self._last_time = timestamp
         self._shares_held += qty
-        price = convert_price(price_str, False)
+        price = tick.convert_price(price_str, False)
 
         # Fix the fact that remaining_qty is always positive
         if qty > 0:

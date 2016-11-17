@@ -18,7 +18,3 @@ def get_quotes_dir():
 def get_cache_dir():
     script_dir = os.path.dirname(os.path.realpath(__file__))
     return os.path.join(script_dir, "cache/")
-
-def get_pylimitbook_dir():
-    script_dir = os.path.dirname(os.path.realpath(__file__))
-    return os.path.join(script_dir, "../PyLimitBook/")

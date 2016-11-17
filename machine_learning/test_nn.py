@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import os, sys
 import cPickle as pickle
 import numpy as np

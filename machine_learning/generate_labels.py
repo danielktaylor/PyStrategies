@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 import sys, os, gc
 import numpy as np
 import pandas as pd
