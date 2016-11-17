@@ -63,9 +63,9 @@ Wrapper scripts are included to generate features and do deep learning using [Th
 
 ### Install Python libraries
 
-1. Setup virtualenv ``virtualenv --no-site-packages venv``
-2. Activate virtualenv ``source venv/bin/activate``
-3. Install libraries ``pip install -r requirements.txt``
+1. Setup virtualenv: ``virtualenv --no-site-packages venv``
+2. Activate virtualenv: ``source venv/bin/activate``
+3. Install libraries: ``pip install -r requirements.txt``
 
 ### Install jpy for bridging Python and Java code
 
