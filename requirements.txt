@@ -8,10 +8,9 @@ mock==2.0.0
 numpy==1.11.2
 Optunity==1.1.1
 pandas==0.19.1
-paramiko==1.17.2
+paramiko==1.17.6
 pbr==1.10.0
 pudb==2016.2
-pycrypto==2.6.1
 Pygments==2.1.3
 -e git://github.com/danielktaylor/PyLimitBook@469eff06a316e336e611d9bcd6422998c93e5905#egg=pylimitbook
 python-dateutil==2.6.0
