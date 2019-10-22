@@ -1,6 +1,6 @@
 ascii-graph==1.2.0
 bintrees==2.0.4
-ecdsa==0.13
+ecdsa==0.13.3
 Fabric==1.12.0
 funcsigs==1.0.2
 future==0.16.0
