@@ -1,4 +1,4 @@
-# PyStrategies: Framework for Algorithmic Trading Strategy Development
+# PyStrategies: Deep Learning Framework for HFT Trading Strategy Development
 
 PyStrategies is a collection of Python tools for implementing, testing, and optimizing algorithmic trading strategies. This framework is built to be used with depth-of-book US equities data. Tools are included for deep learning, parameter optimization, and high-fidelity single-stock backtesting.
 
